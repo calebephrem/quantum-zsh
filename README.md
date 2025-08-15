@@ -8,25 +8,26 @@ Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and 
 
 1. 🌀 **Clone the repository**
 
-   ```bash
+   ```sh
    git clone https://github.com/calebephrem/quantum-zsh.git
    ```
 
 2. 📁 **Copy the theme file**
 
-   ```bash
+   ```sh
    cp quantum.zsh-theme ~/.oh-my-zsh/themes/
+   # or you can copy and paste manually
    ```
 
 3. 📝 **Set it in your `.zshrc`**
 
-   ```bash
+   ```sh
    ZSH_THEME="quantum"
    ```
 
-4. 🔄 **Reload Zsh**
+4. 🔄 **Reload zsh**
 
-   ```bash
+   ```sh
    source ~/.zshrc
    ```
 
@@ -38,13 +39,14 @@ Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and 
 
 - 🧐 Spot any funky colors or layout bugs?
 
-  [Open an issue](https://github.com/calebephrem/quantum-zsh/issues)—we love feedback!
+  [Open an issue](https://github.com/calebephrem/quantum-zsh/issues) — we love feedback!
 
 - 🌟 Enjoying the vibe?
 
   Show some love by starring the [repo](https://github.com/calebephrem/quantum-zsh). It helps more shell stylists discover Quantum!
 
-## ✨ Enjoy the Flow
+- 💻 Using VS Code too?
 
-Quantum is built to be fast, remixable, and terminal-chic.  
-Customize it, fork it, and make it yours. 😎
+  Keep the aesthetic flowing with the [Quantum VS Code theme](https://marketplace.visualstudio.com/items?itemName=CalebEphrem.quantum) — same energy, same polish, now in your editor!
+
+### ✨ Enjoy the Flow

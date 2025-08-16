@@ -37,5 +37,3 @@ function quantum_git_info() {
 
 # 🚀 Prompt
 PROMPT='$(quantum_dir_name)$(quantum_git_info) ${arrow_color}»${reset} '
-
-export LS_COLORS="di=01;36:fi=00;35"

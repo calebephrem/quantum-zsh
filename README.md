@@ -35,6 +35,10 @@ Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and 
 
 🎉 **Boom! Quantum is now live in your terminal.**
 
+## Here Is How It Looks!
+
+![screenshot](https://github.com/calebephrem/quantum-zsh/blob/main/assets/screenshot.png?raw=true)
+
 ## 🚀 Final Notes
 
 - 🧐 Spot any funky colors or layout bugs?

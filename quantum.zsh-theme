@@ -35,7 +35,9 @@ function quantum_git_info() {
   fi
 }
 
+# 🎨 LS_COLORS for better visibility of files and directories
+
+export LS_COLORS="di=01;34:fi=01;33:*.zip=01;32:*.tar=01;32:*.gz=01;32:*.xz=01;32:*.bz2=01;32:*.7z=01;32:*.rar=01;32:*.exe=01;35:*.msi=01;35:*.dat=01;35:*.run=01;35:*.out=01;35:*.bin=01;35:*.elf=01;35:*.sh=01;35"
+
 # 🚀 Prompt
 PROMPT='$(quantum_dir_name)$(quantum_git_info) ${arrow_color}»${reset} '
-
-export LS_COLORS="di=01;36:fi=00;35"

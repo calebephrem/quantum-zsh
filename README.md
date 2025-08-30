@@ -15,11 +15,12 @@ Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and 
 2. 📁 **Copy the theme file**
 
    ```sh
+   cd quantum-zsh/
    cp quantum.zsh-theme ~/.oh-my-zsh/themes/
    # or you can copy and paste manually
    ```
 
-3. 📝 **Set it in your `.zshrc`**
+3. 📝 **Set it in your `.zshrc` configuration file**
 
    ```sh
    ZSH_THEME="quantum"
@@ -31,7 +32,7 @@ Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and 
    source ~/.zshrc
    ```
 
-5. ⭐ Gie the [repo](https://github.com/calebephrem/quantum-zsh) a star if you love it!
+5. ⭐ Give the [repo](https://github.com/calebephrem/quantum-zsh) a star if you love it!
 
 🎉 **Boom! Quantum is now live in your terminal.**
 

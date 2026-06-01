@@ -219,7 +219,7 @@ _qtm_cmd_changelog() {
 
   printf "\n"
   awk '
-    /^## \[/ { count++; if (count > 5) exit }
+    /^## \[/ { count++; if (count > 1) exit }
     count > 0 { print "  " $0 }
   ' "$changelog"
   printf "\n"

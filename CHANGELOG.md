@@ -2,12 +2,19 @@
 
 All notable changes to Quantum are documented here.
 
+## [2.1.1] - 06/01/2026
+
+### Added
+
+- Updated ASCII art banner in install script
+- ASCII art header displayed on `qtm update`
+
 ## [2.1.0] - 06/01/2026
 
 ### Added
 
-- `qtm update` — pulls latest changes from GitHub into the theme directory
-- `qtm version` / `qtm -v` — reads and displays the version from `.quantumver`
+- `qtm update` - pulls latest changes from GitHub into the theme directory
+- `qtm version` / `qtm -v` - reads and displays the version from `.quantumver`
 - `.quantumver` file for tracking the current theme version
 
 ## [2.0.0] - 06/01/2026

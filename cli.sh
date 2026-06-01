@@ -136,6 +136,7 @@ _qtm_cmd_list() {
   done
 }
 
+
 # qtm reload
 
 _qtm_cmd_reload() {
@@ -196,6 +197,24 @@ _qtm_cmd_version() {
   _qtm_log "quantum theme $version"
 }
 
+# qtm changelog
+
+_qtm_cmd_changelog() {
+  local changelog="$QUANTUM_DIR/CHANGELOG.md"
+
+  if [[ ! -f "$changelog" ]]; then
+    _qtm_err "CHANGELOG.md not found at $changelog"
+    return 1
+  fi
+
+  printf "\n"
+  awk '
+    /^## \[/ { count++; if (count > 5) exit }
+    count > 0 { print "  " $0 }
+  ' "$changelog"
+  printf "\n"
+}
+
 # qtm help
 
 _qtm_cmd_help() {
@@ -213,6 +232,7 @@ _qtm_cmd_help() {
   printf "    reset                reset ~/.quantumrc to repo defaults\n"
   printf "    update               pull latest changes from github\n"
   printf "    -v, version          show the current theme version\n"
+  printf "    changelog            show the latest 5 changelog entries\n"
   printf "    help                 show this help text\n"
   printf "\n"
   printf "  Examples:\n"
@@ -241,6 +261,7 @@ case "$1" in
   reset)           _qtm_cmd_reset ;;
   update)          _qtm_cmd_update ;;
   -v|version)      _qtm_cmd_version ;;
+  changelog)       _qtm_cmd_changelog ;;
   help)            _qtm_cmd_help ;;
   "")              _qtm_cmd_help ;;
   *)

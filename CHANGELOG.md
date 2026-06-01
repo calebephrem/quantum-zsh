@@ -2,6 +2,12 @@
 
 All notable changes to Quantum are documented here.
 
+## [2.2.0] - 06/01/2026
+
+### Added
+
+- `qtm changelog` - displays the latest 5 changelogs from `CHANGELOG.md`
+
 ## [2.1.1] - 06/01/2026
 
 ### Added

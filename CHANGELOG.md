@@ -8,6 +8,10 @@ All notable changes to Quantum are documented here.
 
 - `qtm changelog` - displays the latest 5 changelogs from `CHANGELOG.md`
 
+### Fixed
+
+- `qtm update` now discards local changes before pulling instead of stashing, avoiding merge conflicts
+
 ## [2.1.1] - 06/01/2026
 
 ### Added

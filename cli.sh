@@ -178,10 +178,20 @@ _qtm_cmd_update() {
   fi
 
   _qtm_header
+
+  if ! git -C "$QUANTUM_DIR" diff --quiet 2>/dev/null; then
+    # _qtm_info "restoring local changes"
+    git -C "$QUANTUM_DIR" restore .
+  fi
+
   _qtm_info "pulling latest changes"
-  git -C "$QUANTUM_DIR" pull --ff-only -q
-  _qtm_ok "theme updated"
-  _qtm_warn "run 'qtm reload' to apply changes"
+  if git -C "$QUANTUM_DIR" pull --ff-only -q; then
+    _qtm_ok "theme updated"
+    _qtm_warn "run 'qtm reload' to apply changes"
+  else
+    _qtm_err "pull failed"
+    return 1
+  fi
 }
 
 # qtm version / qtm -v
@@ -194,7 +204,7 @@ _qtm_cmd_version() {
 
   local version
   version="$(cat "$VERSION_FILE")"
-  _qtm_log "quantum theme $version"
+  _qtm_log "Quantum Theme v$version"
 }
 
 # qtm changelog

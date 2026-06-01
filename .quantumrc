@@ -1,0 +1,85 @@
+# Quantum Theme Configuration
+
+# This file is the default config shipped with the repo.
+
+# Your personal config lives at ~/.quantumrc and overrides these values.
+
+# Run `qtm list` to see current active values.
+
+# Run `qtm set KEY value` to change a value without editing this file.
+
+# Segments to display, in order.
+
+# Available: dir, git_status, venv, user, host, time, exit_code
+
+SEGMENTS=(dir git_status)
+
+# Symbols
+
+PROMPT_SYMBOL="»"
+GIT_BRANCH_SYMBOL=" "
+GIT_DETACHED_SYMBOL="@"
+GIT_DIRTY_SYMBOL="✗"
+GIT_CLEAN_SYMBOL=""
+GIT_AHEAD_SYMBOL="↑"
+GIT_BEHIND_SYMBOL="↓"
+
+# Colors
+
+# Valid values: black, red, green, yellow, blue, magenta, cyan, white
+
+COLOR_DIR="cyan"
+COLOR_BRANCH="yellow"
+COLOR_DETACHED="red"
+COLOR_ARROW="green"
+COLOR_DIRTY="red"
+COLOR_CLEAN="green"
+COLOR_VENV="blue"
+COLOR_USER="magenta"
+COLOR_HOST="white"
+COLOR_TIME="white"
+COLOR_EXIT_OK="green"
+COLOR_EXIT_FAIL="red"
+
+# Directory display style
+
+# name = just the current folder name
+
+# short = abbreviated path like ~/projects/repo
+
+# full = full absolute path
+
+DIR_STYLE="name"
+
+# Git options
+
+GIT_SHOW_DIRTY="false"
+GIT_SHOW_AHEAD_BEHIND="false"
+
+# Show Python virtual environment name (requires venv in SEGMENTS)
+
+SHOW_VENV="true"
+
+# Show exit code of the last command (requires exit_code in SEGMENTS)
+
+SHOW_EXIT_CODE="false"
+
+# Show username (requires user in SEGMENTS)
+
+SHOW_USER="false"
+
+# Show hostname (requires host in SEGMENTS)
+
+SHOW_HOST="false"
+
+# Show current time (requires time in SEGMENTS)
+
+SHOW_TIME="false"
+
+# Print a newline before each prompt
+
+NEWLINE_BEFORE_PROMPT="false"
+
+# Bold prompt arrow and symbols
+
+PROMPT_BOLD="false"

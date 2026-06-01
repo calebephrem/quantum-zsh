@@ -1,60 +1,113 @@
-# ⚡ QUANTUM THEME FOR ZSH!
+# Quantum Theme for ZSH
 
 ![Preview](https://github.com/calebephrem/quantum-zsh/blob/main/assets/preview.png?raw=true)
 
-Welcome to **Quantum**—a sleek, dynamic Zsh theme built for speed, style, and shell supremacy. Whether you're deep in Git or just vibing in your terminal, Quantum adapts to your flow.
+A lightweight, configurable ZSH theme with git integration, built for oh-my-zsh.
 
-## ⬇️ Installation
+## Installation
 
-1. 🌀 **Clone the repository**
+**One-liner:**
 
-   ```sh
-   git clone https://github.com/calebephrem/quantum-zsh.git
-   ```
+```sh
+bash <(curl -fsSL https://raw.githubusercontent.com/calebephrem/quantum-zsh/main/install.sh)
+```
 
-2. 📁 **Copy the theme file**
+**Manual:**
 
-   ```sh
-   cd quantum-zsh/
-   cp quantum.zsh-theme ~/.oh-my-zsh/themes/
-   # or you can copy and paste manually
-   ```
+1. Clone the repository
 
-3. 📝 **Set it in your `.zshrc` configuration file**
+```sh
+   git clone https://github.com/calebephrem/quantum-zsh ~/.oh-my-zsh/custom/themes/quantum
+```
 
-   ```sh
-   ZSH_THEME="quantum"
-   ```
+2. Copy the default config
 
-4. 🔄 **Reload zsh**
+```sh
+   cp ~/.oh-my-zsh/custom/themes/quantum/.quantumrc ~/.quantumrc
+```
 
-   ```sh
-   source ~/.zshrc
-   ```
+3. Add the `qtm` alias to your `.zshrc`
 
-5. ⭐ Give the [repo](https://github.com/calebephrem/quantum-zsh) a star if you love it!
+```sh
+   echo 'alias qtm="source ~/.oh-my-zsh/custom/themes/quantum/cli.sh"' >> ~/.zshrc
+```
 
-6. 👀 Make sure to **watch** the repository for any events happening 
-   <img width="661" height="56" alt="Image" src="https://github.com/user-attachments/assets/c805383e-1e8b-4ae2-9227-7b93ae821e56" />
+4. Set the theme in your `.zshrc`
 
-🎉 **Boom! Quantum is now live in your terminal.**
+```sh
+   ZSH_THEME="quantum/quantum"
+```
 
-## Here Is How It Looks!
+5. Reload your shell
 
-![screenshot](https://github.com/calebephrem/quantum-zsh/blob/main/assets/screenshot.png?raw=true)
+```sh
+   exec zsh
+```
 
-## 🚀 Final Notes
+## Configuration
 
-- 🧐 Spot any funky colors or layout bugs?
+Quantum is configured through `~/.quantumrc`, created automatically on install script.
 
-  [Open an issue](https://github.com/calebephrem/quantum-zsh/issues) — we love feedback!
+**Using the CLI:**
 
-- 🌟 Enjoying the vibe?
+```sh
+qtm set GIT_BRANCH_SYMBOL " "
+qtm set DIR_STYLE short
+qtm set GIT_SHOW_DIRTY false
+qtm get COLOR_ARROW
+qtm list
+qtm reload
+qtm reset # To restore quantum theme to it's initial config
+```
 
-  Show some love by starring the [repo](https://github.com/calebephrem/quantum-zsh). It helps more shell stylists discover Quantum!
+## Segments
 
-- 💻 Using VS Code too?
+Control what shows in your prompt by editing the `SEGMENTS` array in `~/.quantumrc`:
 
-  Keep the aesthetic flowing with the [Quantum VS Code theme](https://marketplace.visualstudio.com/items?itemName=CalebEphrem.quantum) — same energy, same polish, now in your editor!
+```sh
+SEGMENTS=(dir git_status)
+```
 
-### ✨ Enjoy the Flow
+Available segments: `dir`, `git_status`, `venv`, `user`, `host`, `time`, `exit_code`
+
+## Options
+
+| Key                     | Default            | Description                          |
+| ----------------------- | ------------------ | ------------------------------------ |
+| `SEGMENTS`              | `(dir git_status)` | Segments to display, in order        |
+| `PROMPT_SYMBOL`         | `»`                | Arrow/separator symbol               |
+| `GIT_BRANCH_SYMBOL`     | ` `                | Symbol before branch name            |
+| `GIT_DIRTY_SYMBOL`      | `✗`                | Shown when working tree is dirty     |
+| `GIT_CLEAN_SYMBOL`      | ` `                | Shown when working tree is clean     |
+| `GIT_AHEAD_SYMBOL`      | `↑`                | Shown when ahead of remote           |
+| `GIT_BEHIND_SYMBOL`     | `↓`                | Shown when behind remote             |
+| `COLOR_DIR`             | `cyan`             | Directory color                      |
+| `COLOR_BRANCH`          | `yellow`           | Branch name color                    |
+| `COLOR_DETACHED`        | `red`              | Detached HEAD color                  |
+| `COLOR_ARROW`           | `green`            | Prompt symbol color                  |
+| `COLOR_DIRTY`           | `red`              | Dirty indicator color                |
+| `COLOR_CLEAN`           | `green`            | Clean indicator color                |
+| `COLOR_VENV`            | `blue`             | Virtual environment color            |
+| `COLOR_USER`            | `magenta`          | Username color                       |
+| `COLOR_HOST`            | `white`            | Hostname color                       |
+| `COLOR_TIME`            | `white`            | Time color                           |
+| `COLOR_EXIT_OK`         | `green`            | Exit code color on success           |
+| `COLOR_EXIT_FAIL`       | `red`              | Exit code color on failure           |
+| `DIR_STYLE`             | `name`             | `name`, `short`, or `full`           |
+| `GIT_SHOW_DIRTY`        | `true`             | Show dirty indicator                 |
+| `GIT_SHOW_AHEAD_BEHIND` | `false`            | Show ahead/behind counts             |
+| `SHOW_VENV`             | `true`             | Show Python virtual environment name |
+| `SHOW_EXIT_CODE`        | `false`            | Show exit code of last command       |
+| `NEWLINE_BEFORE_PROMPT` | `false`            | Print a newline before each prompt   |
+
+Valid color values: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
+
+## Screenshot
+
+![Screenshot](https://github.com/calebephrem/quantum-zsh/blob/main/assets/screenshot.png?raw=true)
+
+## Notes
+
+- Found a bug? [Open an issue](https://github.com/calebephrem/quantum-zsh/issues)
+- Using VS Code? Check out the [Quantum VS Code theme](https://marketplace.visualstudio.com/items?itemName=CalebEphrem.quantum)
+- Enjoying the theme? Show some love by starring the [repo](https://github.com/calebephrem/quantum-zsh). It helps more shell stylists discover Quantum Theme :3

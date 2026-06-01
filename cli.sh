@@ -7,6 +7,7 @@
 QUANTUM_DIR="${0:A:h}"
 USER_RC="$HOME/.quantumrc"
 DEFAULT_RC="$QUANTUM_DIR/.quantumrc"
+VERSION_FILE="$QUANTUM_DIR/.quantumver"
 
 # Logging helpers
 
@@ -92,7 +93,7 @@ _qtm_cmd_get() {
 _qtm_cmd_list() {
   _qtm_ensure_rc || return 1
 
-  printf "\n  Quantum Theme  ・  %s\n\n" "$USER_RC"
+  printf "\n  Quantum Theme  —  %s\n\n" "$USER_RC"
 
   local groups=(
     "Segments:SEGMENTS"
@@ -147,6 +148,33 @@ _qtm_cmd_reset() {
   fi
 }
 
+# qtm update
+
+_qtm_cmd_update() {
+  if [[ ! -d "$QUANTUM_DIR/.git" ]]; then
+    _qtm_err "theme directory is not a git repo: $QUANTUM_DIR"
+    return 1
+  fi
+
+  _qtm_info "pulling latest changes"
+  git -C "$QUANTUM_DIR" pull --ff-only -q
+  _qtm_ok "theme updated"
+  _qtm_warn "run 'qtm reload' to apply changes"
+}
+
+# qtm version / qtm -v
+
+_qtm_cmd_version() {
+  if [[ ! -f "$VERSION_FILE" ]]; then
+    _qtm_err "version file not found at $VERSION_FILE"
+    return 1
+  fi
+
+  local version
+  version="$(cat "$VERSION_FILE")"
+  _qtm_log "quantum theme $version"
+}
+
 # qtm help
 
 _qtm_cmd_help() {
@@ -162,6 +190,8 @@ _qtm_cmd_help() {
   printf "    list                 show all config values\n"
   printf "    reload               restart the shell to apply changes\n"
   printf "    reset                reset ~/.quantumrc to repo defaults\n"
+  printf "    update               pull latest changes from github\n"
+  printf "    -v, version          show the current theme version\n"
   printf "    help                 show this help text\n"
   printf "\n"
   printf "  Examples:\n"
@@ -173,6 +203,8 @@ _qtm_cmd_help() {
   printf "    qtm set GIT_SHOW_DIRTY false\n"
   printf "    qtm get COLOR_ARROW\n"
   printf "    qtm list\n"
+  printf "    qtm update\n"
+  printf "    qtm -v\n"
   printf "\n"
   printf "  Config: ~/.quantumrc\n"
   printf "\n"
@@ -181,13 +213,15 @@ _qtm_cmd_help() {
 # Entry point
 
 case "$1" in
-  set)    shift; _qtm_cmd_set "$@" ;;
-  get)    shift; _qtm_cmd_get "$@" ;;
-  list)   _qtm_cmd_list ;;
-  reload) _qtm_cmd_reload ;;
-  reset)  _qtm_cmd_reset ;;
-  help)   _qtm_cmd_help ;;
-  "")     _qtm_cmd_help ;;
+  set)             shift; _qtm_cmd_set "$@" ;;
+  get)             shift; _qtm_cmd_get "$@" ;;
+  list)            _qtm_cmd_list ;;
+  reload)          _qtm_cmd_reload ;;
+  reset)           _qtm_cmd_reset ;;
+  update)          _qtm_cmd_update ;;
+  -v|version)      _qtm_cmd_version ;;
+  help)            _qtm_cmd_help ;;
+  "")              _qtm_cmd_help ;;
   *)
     _qtm_err "unknown command: $1"
     _qtm_cmd_help

@@ -2,7 +2,15 @@
 
 All notable changes to Quantum are documented here.
 
-## [2.0.0] - 2025
+## [2.1.0] - 06/01/2026
+
+### Added
+
+- `qtm update` — pulls latest changes from GitHub into the theme directory
+- `qtm version` / `qtm -v` — reads and displays the version from `.quantumver`
+- `.quantumver` file for tracking the current theme version
+
+## [2.0.0] - 06/01/2026
 
 ### Added
 
@@ -21,7 +29,7 @@ All notable changes to Quantum are documented here.
 - Prompt is built via `precmd` hook instead of a subshell expansion
 - All config keys unprefixed (e.g. `COLOR_DIR` instead of `QUANTUM_COLOR_DIR`)
 
-## [1.0.0] - 2025
+## [1.0.0] - 08/15/2025
 
 ### Added
 

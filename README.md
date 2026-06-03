@@ -76,9 +76,9 @@ Available segments: `dir`, `git_status`, `venv`, `user`, `host`, `time`, `exit_c
 | ----------------------- | ------------------ | ------------------------------------ |
 | `SEGMENTS`              | `(dir git_status)` | Segments to display, in order        |
 | `PROMPT_SYMBOL`         | `»`                | Arrow/separator symbol               |
-| `GIT_BRANCH_SYMBOL`     | ` `                | Symbol before branch name            |
+| `GIT_BRANCH_SYMBOL`     | ` `               | Symbol before branch name            |
 | `GIT_DIRTY_SYMBOL`      | `✗`                | Shown when working tree is dirty     |
-| `GIT_CLEAN_SYMBOL`      | ` `                | Shown when working tree is clean     |
+| `GIT_CLEAN_SYMBOL`      | ``                 | Shown when working tree is clean     |
 | `GIT_AHEAD_SYMBOL`      | `↑`                | Shown when ahead of remote           |
 | `GIT_BEHIND_SYMBOL`     | `↓`                | Shown when behind remote             |
 | `COLOR_DIR`             | `cyan`             | Directory color                      |

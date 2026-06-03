@@ -242,7 +242,7 @@ _qtm_cmd_help() {
   printf "    reset                reset ~/.quantumrc to repo defaults\n"
   printf "    update               pull latest changes from github\n"
   printf "    -v, version          show the current theme version\n"
-  printf "    changelog            show the latest 5 changelog entries\n"
+  printf "    changelog            show the latest changelog entry\n"
   printf "    help                 show this help text\n"
   printf "\n"
   printf "  Examples:\n"
